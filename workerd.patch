@@ -1,0 +1,18 @@
+diff --git a/WORKSPACE b/WORKSPACE
+index 4ee56e8..a248369 100644
+--- a/WORKSPACE
++++ b/WORKSPACE
+@@ -35,10 +35,10 @@ rules_foreign_cc_dependencies()
+ 
+ http_archive(
+     name = "capnp-cpp",
+-    sha256 = "7ccdf8eeed127d439bc8a94d5742f87d3e5e305f13c3bbb2797005eb6705bf98",
+-    strip_prefix = "capnproto-capnproto-d0e3946/c++",
++    sha256 = "1bdf0daa2514d8fc357989ca021a6f26802da858b819921cdfc5418f5b731f28",
++    strip_prefix = "capnproto-capnproto-1201426/c++",
+     type = "tgz",
+-    urls = ["https://github.com/capnproto/capnproto/tarball/d0e3946787b635c7196ded373ae867642e0cf5c7"],
++    urls = ["https://github.com/capnproto/capnproto/tarball/120142617a8a43ef06fcabd955a7bd22eca5a9ca"],
+ )
+ 
+ http_archive(
