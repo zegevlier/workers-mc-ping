@@ -21,5 +21,5 @@ curl localhost:8080?ip=play.hypixel.net:25565
 
 ## Possible improvements
 
-- [ ] Support SRV records, probably using DoH
-- [ ] Make error messages better is the ping didn't work
+- [x] Support SRV records using DoH
+- [ ] Make error messages better if the ping didn't work

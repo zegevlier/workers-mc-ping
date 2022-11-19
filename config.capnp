@@ -14,7 +14,7 @@ const minecraftPing :Workerd.Config = (
 # The definition of the actual worker exposed using the "main" service.
 const minecraftWorker :Workerd.Worker = (
   modules = [
-    (name = "worker", esModule = embed "mcping.js")
+    (name = "worker", esModule = embed "dist/index.js")
   ],
   compatibilityDate = "2022-09-26",
   compatibilityFlags = ["tcp_sockets_support"],

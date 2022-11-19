@@ -1,0 +1,23 @@
+{
+    "name": "workers-mc-ping",
+    "version": "0.0.1",
+    "description": "This is a simple implementation of the Minecraft ping in workers. It currently relies on a not-yet-stable API, so it will probably break before it can be used on Cloudflare's edge.",
+    "main": "./dist/index.js",
+    "scripts": {
+        "dev:workerd": "workerd serve config.capnp --watch --experimental --verbose",
+        "dev:build": "esbuild src/index.ts --bundle --outfile=dist/index.js --platform=neutral --watch",
+        "dev": "concurrently npm:dev:*"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/zegevlier/workers-mc-ping.git"
+    },
+    "author": "zegevlier",
+    "homepage": "https://github.com/zegevlier/workers-mc-ping",
+    "devDependencies": {
+        "@cloudflare/workers-types": "^4.20221111.1",
+        "concurrently": "^7.5.0",
+        "esbuild": "^0.15.14",
+        "ts-loader": "^9.4.1"
+    }
+}
