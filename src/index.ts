@@ -22,6 +22,7 @@ export default {
 
             // If no port is specified, see if there is a SRV record. If not, use the default port.
             if (ip.split(":").length == 1) {
+                console.log("No port specified, looking for SRV record");
                 // First, we check if there is a SRV record for the domain
                 // Since this is going to run on workers, might as well use Cloudflare's DNS
                 let doHResponse = await fetch("https://cloudflare-dns.com/dns-query?type=SRV&name=_minecraft._tcp." + ip, {
@@ -38,8 +39,9 @@ export default {
                     }[]
                 } = await doHResponse.json();
 
-                if (doHResponseJSON.Status == 0 && doHResponseJSON.Answer && doHResponseJSON.Answer.length > 0) {
+                if (doHResponseJSON.Status == 0 && doHResponseJSON.Answer && doHResponseJSON.Answer.length > 0 && doHResponseJSON.Answer[0].data.split(" ").length == 4) {
                     // If there is an SRV record, we use the first one
+                    console.log("Found SRV record, using it");
                     let data_split = doHResponseJSON.Answer[0].data.split(" ");
                     ip = data_split[3] + ":" + data_split[2];
                 } else {
@@ -96,8 +98,6 @@ export default {
                     }
                 }
             }
-
-            console.log("Read ", arr.length, " from Minecraft server");
 
             let packet = new Packet();
             packet.setBuffer(arr);
