@@ -4,9 +4,12 @@
     "description": "This is a simple implementation of the Minecraft ping in workers. It currently relies on a not-yet-stable API, so it will probably break before it can be used on Cloudflare's edge.",
     "main": "./dist/index.js",
     "scripts": {
-        "dev:workerd": "workerd serve config.capnp --watch --experimental --verbose",
+        "dev:workerd": "nodemon --watch dist -L --exec 'workerd serve config.capnp --experimental --verbose' ",
         "dev:build": "esbuild src/index.ts --bundle --outfile=dist/index.js --platform=neutral --watch",
         "dev": "concurrently npm:dev:*"
+    },
+    "watch": {
+        "workerd": "dist/index.js"
     },
     "repository": {
         "type": "git",
@@ -18,6 +21,7 @@
         "@cloudflare/workers-types": "^4.20221111.1",
         "concurrently": "^7.5.0",
         "esbuild": "^0.15.14",
+        "nodemon": "^2.0.20",
         "ts-loader": "^9.4.1"
     }
 }
