@@ -4,13 +4,13 @@ This is a simple implementation of the Minecraft ping in workers. It currently r
 
 ## Usage
 
-Currently, the main branch of the [workerd repo](https://github.com/cloudflare/workerd) does not automatically support the TCP sockets, you need to update the captn' proto version. This respository contain `workerd.patch`, which makes the required changes to the `WORKSPACE` file. (Thank you to MrBBot for pointing me in the right direction). After that, build `wokerd` using the instructions on their repo. After that, you can use the following command to run the worker:
+Currently, the main branch of the [workerd repo](https://github.com/cloudflare/workerd) does not automatically support the TCP sockets, you need to update the captn' proto version. This respository contain `workerd.patch`, which makes the required changes to the `WORKSPACE` file. (Thank you to MrBBot for pointing me in the right direction). After that, build `wokerd` using the instructions on their repo. Then you can use the following command to build and run the worker:
 
 ```bash
-workerd serve config.capnp -w --experimental --verbose
+npm run dev
 ```
 
-Now, you can ping a minecraft server with the following command:
+This will watch for changes to the code and restart workerd. Now, you can ping a minecraft server with the following command:
 
 ```bash
 curl localhost:8080?ip=<ip>[:port]
