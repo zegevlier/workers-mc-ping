@@ -4,7 +4,7 @@ This is a simple implementation of the Minecraft ping in workers. It currently r
 
 ## Usage
 
-Currently, the main branch of the [workerd repo](https://github.com/cloudflare/workerd) does not automatically support the TCP sockets, you need to update the captn' proto version. This respository contain `workerd.patch`, which makes the required changes to the `WORKSPACE` file. (Thank you to MrBBot for pointing me in the right direction). After that, build `wokerd` using the instructions on their repo. Then you can use the following command to build and run the worker:
+This worker does not run on Cloudflare's edge, so you will need to run workers locally using [`workerd`](https://github.com/cloudflare/workerd/). Build `wokerd` using the instructions on their repo. Then you can use the following command to build and run the worker:
 
 ```bash
 npm run dev
